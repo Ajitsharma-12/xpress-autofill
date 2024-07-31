@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Xpress - AutoFill",
+  "version": "1.0.0",
+  "description": "Auto-fills forms and lets you manage saved data.",
+  "icons": {
+    "16": "icons/meteor-solid.png",
+    "48": "icons/meteor-solid.png",
+    "128": "icons/meteor-solid.png"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "webNavigation",
+    "tabs",
+    "notifications"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "options_ui": {
+    "page": "index.html",
+    "open_in_tab": true
+  }
+}
+  
